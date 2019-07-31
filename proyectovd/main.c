@@ -39,8 +39,7 @@ int main()
     printf("   2) Digite 2 si quiere determinar el contenido de un paquete si es http u otro protocolo.\n");
     printf("   3) Digite 3 si quiere ingresar HTTP de una pagina.\n");
     printf("   4) Digite 4 si quiere cargar de un archivo el contenido de un paquete HTTP.\n");
-    printf("   5) Digite 5 si desea buscar si la palabra buscada esta en espa%col o en otro idioma.\n",164);
-    printf("   6) Salir\n");
+    printf("   5) Salir\n");
     printf("Opcion: ");
     scanf("%d",&sw);
 
@@ -58,7 +57,8 @@ int main()
         buscar_palabra_http(); //busca la palabra http
         printf("   ...MENU...\n");
         printf("   a) Digite a si quiere encontrar password o usuario de tipo Content-Type: application\n");
-        printf("   b) Digite b si quiere encontrar password o usuario de tipo Content-Type: multipart/form-data\n");
+        printf("   b) Digite b si quiere encontrar password de tipo Content-Type: multipart/form-data\n");
+
         printf("Opcion: ");
         scanf("%s",&part4);
         switch(part4)
@@ -96,19 +96,7 @@ int main()
             break;
         case 'b':
             buscar_palabra_Content_type_multipart();
-            //mult = fopen("C:\\Users\\noelf\\Downloads\\peticion2.txt", "rt");
-            //extraer_password_multipart("C:\\Users\\noelf\\Downloads\\peticion2.txt");
-            //extraer_usuario_multipart("C:\\Users\\noelf\\Downloads\\peticion2.txt");
-            //puts(pruebab);
-            /*while(!feof(mult))
-            {
-                pruebab[d]=fgetc(mult);
 
-                d++;
-                puts(extrae_password_multipart(pruebab));
-                //puts(extrae_username_url_encoded(prueba));
-
-            }*/
             FILE* p;
             char c;
             char arr[500],arr2[100],arr3[100],arr4[100];
@@ -130,6 +118,7 @@ int main()
             }
             fclose(p);
 
+
             FILE* Z;
             char j;
             char arr1a[500],arr2a[100],arr3a[100],arr4a[100];
@@ -140,7 +129,7 @@ int main()
             {
                 j=fgetc(Z);
                 arr1a[k]=j;
-                if (((arr1a[k]=='e')&&(arr1a[k-1]=='m')&&(arr1a[k-2]=='a'))&&((arr1a[k-3]=='n')&&(arr1a[k-4]=='r')&&(arr1a[k-5]=='e')&&(arr1a[k-6]=='s')&&(arr[k-7]=='u'))||((arr[k-4]=='r')&&(arr[k-5]=='e')&&(arr[k-6]=='s')&&(arr[i-7]=='u'))||((arr[i]=='r')&&(arr[i-1]=='e')&&(arr[i-2]=='s')&&(arr[i-3]=='u'))||((arr[i]=='o')&&(arr[i-1]=='i')&&(arr[i-2]=='r')&&(arr[i-3]=='a')&&(arr[i-4]=='u')&&(arr[i-5]=='s')&&(arr[i-6]=='u')))
+                if (((arr1a[k]=='e')&&(arr1a[k-1]=='m')&&(arr1a[k-2]=='a')&&(arr1a[k-3]=='n')&&(arr1a[k-4]=='r')&&(arr1a[k-5]=='e')&&(arr1a[k-6]=='s')&&(arr1a[k-7]=='u'))||((arr1a[k]=='r')&&(arr1a[k-1]=='e')&&(arr1a[k-2]=='s')&&(arr1a[k-3]=='u'))||((arr1a[k]=='r')&&(arr1a[k-1]=='e')&&(arr1a[k-2]=='s')&&(arr1a[k-3]=='u'))||((arr1a[k]=='o')&&(arr1a[k-1]=='i')&&(arr1a[k-2]=='r')&&(arr1a[k-3]=='a')&&(arr1a[k-4]=='u')&&(arr1a[k-5]=='s')&&(arr1a[k-6]=='u')))
                 {
                     fgets(arr2a,100,Z);
                     fgets(arr3a,100,Z);
@@ -151,37 +140,33 @@ int main()
             }
             fclose(Z);
 
+
             printf("   ...MENU...\n");
             printf("Digite g si quiere guardar los datos obtenidos, d si desea salir\n");
             scanf("%s",&x);
             if (x=='g')
             {
                 si = fopen("C:\\Users\\noelf\\Documents\\proyectovd\\datosguardados.txt", "a+t");
-                fputs("C:\\Users\\noelf\\Downloads\\peticion2.txt",no);
-                extrae_username_url_encoded("C:\\Users\\noelf\\Downloads\\peticion2.txt");
+                fputs(arr4,p);
+                fputs(arr4a,Z);
+
                 fclose(si);
                 printf("Se guardo correctamente\n");
+
             }
             else
             {
                 printf("bye\n");
             }
 
-            fclose(mult);
-
             break;
+
         }
-
-
-        break;
     case 4:
         puts(leer_archivo_texto("C:\\Users\\noelf\\Documents\\proyectovd\\datosguardados.txt"));
         break;
+
     case 5:
-       // extraer_password_multipart("C:\\Users\\noelf\\Downloads\\peticion2.txt");
-        //extraer_usuario_multipart("C:\\Users\\noelf\\Downloads\\peticion2.txt");
-        break;
-    case 6:
         break;
 
     default:
